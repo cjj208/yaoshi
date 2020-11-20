@@ -7,7 +7,7 @@ from PIL import ImageGrab
 import cv2 as cv
 import numpy as np
 import webbrowser
-
+#这里做个记号
 #os.chdir(r"D:\Python_projects\trade_projects\opencv_projects\药师公需项目")
 
 def retxy(screen=(0, 0, 1920, 1080), templateimg="B.png", ):
