@@ -7,13 +7,9 @@ from PIL import ImageGrab
 import cv2 as cv
 import numpy as np
 import webbrowser
-# Change the working directory to the folder this script is in.
-# Doing this because I'll be putting the files from each video in their own folder on GitHub
-os.chdir(r"D:\Python_projects\trade_projects\opencv_projects\药师公需项目")
 
+#os.chdir(r"D:\Python_projects\trade_projects\opencv_projects\药师公需项目")
 
-# = cv.imread('qudati.png', cv.IMREAD_UNCHANGED)
-# screenshot = ImageGrab.grab(bbox=(0, 0, 700, 715))
 def retxy(screen=(0, 0, 1920, 1080), templateimg="B.png", ):
     screenshot = ImageGrab.grab(bbox=screen)
     screenshot = np.array(screenshot)
@@ -31,21 +27,16 @@ def retxy(screen=(0, 0, 1920, 1080), templateimg="B.png", ):
         p = (pt[0]+w*0.5,pt[1]+h*0.5,)
         postion.append(p)
         #print(pt)
-    #print("共有%s个" % len(postion))
-    #print("坐标为：", postion)
+
 
     return postion
-    # print (pt[0],pt[1])
-    # print(zip(*loc[::-1]))
-    # cv.imwrite('res.png',img_rgb)
-    # cv.imshow("computer Vision",img_rgb)
-    # cv.waitKey(0)
+
 def clicking(px=1213,py=18):
     time.sleep(0.5)
     pyautogui.moveTo(x=px, y=py, )
     time.sleep(0.3)
     pyautogui.click()
-    #print ("点击一次：x:%s y:%s"%(px,py))
+
     time.sleep(0.5)
 def postion():
     try:
@@ -70,7 +61,7 @@ def backhome():
         time.sleep(0.1)
         pyautogui.press('down')
         down += 1
-        #print("方向键按下%s" % down)
+
 
 def doit():
 
@@ -109,7 +100,7 @@ def doit():
             tijiao = retxy((tijiaol, tijiaob, 1363, 801), templateimg="tijiao.png", )
             tijiaox = tijiao[0][0] + tijiaol
             tijiaoy = tijiao[0][1] + tijiaob
-            # print(tijiaox, tijiaoy)  # 953.0 699.5
+
             time.sleep(1)
             clicking(px=tijiaox, py=tijiaoy)
             time.sleep(1)
@@ -130,7 +121,7 @@ def doit():
                 tijiao = retxy((tijiaol, tijiaob, 1363, 801), templateimg="tijiao.png", )
                 tijiaox = tijiao[0][0] + tijiaol
                 tijiaoy = tijiao[0][1] + tijiaob
-                # print(tijiaox, tijiaoy)  # 953.0 699.5
+
                 time.sleep(1)
                 clicking(px=tijiaox, py=tijiaoy)
                 time.sleep(1)
@@ -252,18 +243,6 @@ def doit():
         time.sleep(1)
 
 
-
-    # else:
-    #     clicking(px=1919, py=300)  # 鼠标移至右侧滑条
-    #     pyautogui.press('up')
-    #     time.sleep(0.1)
-    #     pyautogui.press('up')
-    #     time.sleep(0.1)
-    #     clicking(px=gohome[0][0], py=gohome[0][1])
-    #     print ("未发现目标")
-
-
-
 if __name__ == "__main__":
     openurl()#打开网站
     login = False
@@ -281,7 +260,7 @@ if __name__ == "__main__":
         time.sleep(1)
         #截图并指定预计时长的位置并找到
         clickxy = retxy((0, 0, 1920, 1080),templateimg="yujishichan.png",)
-        #print ('当日更新坐标',clickxy)#打印位置，
+
         list(range(len(clickxy)))
         print("今天总共有%s个任务"%len(clickxy))
         if len(clickxy)>0:
