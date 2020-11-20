@@ -272,7 +272,8 @@ if __name__ == "__main__":
                 clicking(px=x, py=y)
                 time.sleep(1)
                 '''
-                做题的规则写在这里！！
+                做题的规则写在这里！这里做点修改！
+                ！！
                 '''
 
                 wancheng = retxy((0, 0, 1920, 1080), templateimg="wancheng.png", )
