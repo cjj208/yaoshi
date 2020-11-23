@@ -1,7 +1,5 @@
 import pyautogui
 import time
-import cv2 as cv
-import numpy as np
 import os
 from PIL import ImageGrab
 import cv2 as cv
@@ -9,7 +7,6 @@ import numpy as np
 import webbrowser
 #这里做个记号
 #os.chdir(r"D:\Python_projects\trade_projects\opencv_projects\药师公需项目")
-
 def retxy(screen=(0, 0, 1920, 1080), templateimg="B.png", ):
     screenshot = ImageGrab.grab(bbox=screen)
     screenshot = np.array(screenshot)
@@ -46,7 +43,6 @@ def postion():
     except KeyboardInterrupt:
         print('\nExit.')
 def openurl():
-
 
     url = "https://stu.chinahrt.com/index.html#/pharmacist/index"
     chromepath = "C://Program Files (x86)//Google//Chrome//Application//chrome.exe"
@@ -205,17 +201,15 @@ def doit():
         pby = pb[0][1] + botr
         print("xy", pbx, pby)
         clicking(px=pbx, py=pby)
+        time.sleep(1)
         # 选C
         cb = retxy((topl, botr, 1363, 801), templateimg="C.png", )
-
-
         if len(cb) > 0:
-
             cx = cb[0][0] + topl
             cy = cb[0][1] + botr
             print("xy", cx, cx)
             clicking(px=cx, py=cy)
-        # 选C
+        # 选D
         xuanD = retxy((topl, botr, 1363, 801), templateimg="D.png", )
         if len(xuanD)>0:
             xuanDx = xuanD[0][0] + topl
@@ -231,7 +225,69 @@ def doit():
         tijiaoy = tijiao[0][1] + tijiaob
         print(tijiaox, tijiaoy)  # 953.0 699.5
         clicking(px=tijiaox, py=tijiaoy)
+        time.sleep(1.5)
 
+        cwl= 550
+        cwb = 550
+        duoxuancuowu2 = retxy((cwl, cwb, 1363, 801), templateimg="duoxuancuowu2.png", )
+        if len(duoxuancuowu2)>0:#如果回答错误则选AB提交
+            # 选A
+            pa = retxy((topl, botr, 1363, 801), templateimg="A.png", )
+            pax = pa[0][0] + topl
+            pay = pa[0][1] + botr
+            print("xy", pax, pay)
+            clicking(px=pax, py=pay)
+            time.sleep(1)
+            # 选B
+            pb = retxy((topl, botr, 1363, 801), templateimg="B.png", )
+            pbx = pb[0][0] + topl
+            pby = pb[0][1] + botr
+            print("xy", pbx, pby)
+            clicking(px=pbx, py=pby)
+            time.sleep(1)
+
+            tijiaol = 550
+            tijiaob = 550
+            tijiao = retxy((tijiaol, tijiaob, 1363, 801), templateimg="tijiao.png", )
+            tijiaox = tijiao[0][0] + tijiaol
+            tijiaoy = tijiao[0][1] + tijiaob
+            clicking(px=tijiaox, py=tijiaoy)
+
+            time.sleep(1)
+            duoxuancuowu3 = retxy((cwl, cwb, 1363, 801), templateimg="duoxuancuowu2.png", )
+            time.sleep(1)
+            if len(duoxuancuowu3) > 0:#如果再回答错误则选ABC提交
+                # 选A
+                pa = retxy((topl, botr, 1363, 801), templateimg="A.png", )
+                pax = pa[0][0] + topl
+                pay = pa[0][1] + botr
+                print("xy", pax, pay)
+                clicking(px=pax, py=pay)
+                time.sleep(1)
+                # 选B
+                pb = retxy((topl, botr, 1363, 801), templateimg="B.png", )
+                pbx = pb[0][0] + topl
+                pby = pb[0][1] + botr
+                print("xy", pbx, pby)
+                clicking(px=pbx, py=pby)
+                time.sleep(1)
+                # 选c
+                cb = retxy((topl, botr, 1363, 801), templateimg="C.png", )
+                if len(cb) > 0:
+
+                    cx = cb[0][0] + topl
+                    cy = cb[0][1] + botr
+                    print("xy", cx, cx)
+                    clicking(px=cx, py=cy)
+
+                tijiaol = 550
+                tijiaob = 550
+                tijiao = retxy((tijiaol, tijiaob, 1363, 801), templateimg="tijiao.png", )
+                tijiaox = tijiao[0][0] + tijiaol
+                tijiaoy = tijiao[0][1] + tijiaob
+                print(tijiaox, tijiaoy)  # 953.0 699.5
+                clicking(px=tijiaox, py=tijiaoy)
+                time.sleep(1)
 
         # 返回首页
 
