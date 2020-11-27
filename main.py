@@ -5,6 +5,7 @@ from PIL import ImageGrab
 import cv2 as cv
 import numpy as np
 import webbrowser
+
 #这里做个记号
 #os.chdir(r"D:\Python_projects\trade_projects\opencv_projects\药师公需项目")
 def retxy(screen=(0, 0, 1920, 1080), templateimg="B.png", ):
@@ -20,6 +21,7 @@ def retxy(screen=(0, 0, 1920, 1080), templateimg="B.png", ):
     loc = np.where(res >= threshold)
     postion = []
     for pt in zip(*loc[::-1]):
+
         cv.rectangle(img_rgb, pt, (pt[0] + w, pt[1] + h), (0, 0, 255), 2)
         p = (pt[0]+w*0.5,pt[1]+h*0.5,)
         postion.append(p)
@@ -321,6 +323,7 @@ if __name__ == "__main__":
         print("今天总共有%s个任务"%len(clickxy))
         if len(clickxy)>0:
             for i in clickxy:
+                print("正在处理第%s个"%(clickxy.index(i)))
                 backhome()
                 #print (i)
                 x = i[0]
@@ -337,7 +340,7 @@ if __name__ == "__main__":
                 if len(wancheng)==0:
 
                     while True:
-                        print ('等待完成...')
+                        #print ('等待完成...')
                         time.sleep(1)
 
                         startdo = len(retxy((0, 0, 1920, 1080), templateimg="startdo.png", )) > 0
