@@ -69,10 +69,12 @@ def doit():
 
     duoxuan = retxy((topl, botr, 1303, 631),templateimg="duoxuan.png",)
     duoxuan2 = retxy((topl, botr, 1303, 631), templateimg="duoxuan2.png", )
-
+    duoxuan3 = retxy((topl, botr, 1303, 631), templateimg="duoxuan3.jpg", )
     gohome = retxy((0, 0, 1920, 1080), templateimg="homepage.png", )
     dangxuan = retxy((0, 0, 1920, 1080), templateimg="danxuan.png", )
+    dangxuan2 = retxy((0, 0, 1920, 1080), templateimg="danxuan2.png", )
     panduan = retxy((0, 0, 1920, 1080), templateimg="panduan.png", )
+
     if len(qudati)>0:
         print ("进入判断题%s"%qudati)
         x = qudati[0][0]
@@ -134,7 +136,7 @@ def doit():
 
 
 
-    if len(dangxuan)>0  :
+    if len(dangxuan)>0 or len(dangxuan2)>0 :
 
         #选A
         pa = retxy((topl, botr, 1363, 801),templateimg="A.png",)
@@ -188,7 +190,7 @@ def doit():
             pby = pb[0][1] + botr
             # print("xy", pbx, pby)
             clicking(px=pbx, py=pby)
-    if len(duoxuan) > 0 or len(duoxuan2) > 0 :
+    if len(duoxuan) > 0 or len(duoxuan2) > 0 or len(duoxuan3) > 0 :
 
         # 选A
         pa = retxy((topl, botr, 1363, 801), templateimg="A.png", )
@@ -305,6 +307,7 @@ if __name__ == "__main__":
     openurl()#打开网站
     login = False
     strinput = input("是否已完成登陆,请输入y或n!")
+    print ("屏幕尺寸：",pyautogui.size())
     if strinput == "y" or strinput == "Y":
         print ("程序继续")
         login = True
