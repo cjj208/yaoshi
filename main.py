@@ -35,7 +35,6 @@ def clicking(px=1213,py=18):
     pyautogui.moveTo(x=px, y=py, )
     time.sleep(0.3)
     pyautogui.click()
-
     time.sleep(0.5)
 def postion():
     try:
